@@ -8,6 +8,7 @@
             </div>
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>      <!-- pk это primary key, post_detail означает, что Django будет искать URL с именем post_detail в файле blog.urls.py-->
             <p>{{ post.text|linebreaksbr }}</p>
+            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>   <!-- должно быть  post.approved_comments.count , НО НЕ РАБОТАЕТ!!! -->
         </div>
     {% endfor %}
 {% endblock %}
